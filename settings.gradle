@@ -1,0 +1,2 @@
+rootProject.name='ashit'
+include ':app'
