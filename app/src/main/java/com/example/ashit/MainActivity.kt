@@ -15,27 +15,14 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        //Data.dataList.add(ItemXY(652.870f, 357.191f))
-        //Data.dataList.add(ItemXY(601.893f, 356.533f))
-        //Data.dataList.add(ItemXY(590.792f, 376.951f))
-
-        Data.dataList.add(ItemXY(102f, 200f))
-        Data.dataList.add(ItemXY(220f, 330f))
-        Data.dataList.add(ItemXY(320f, 450f))
-
-        println(Data.dataList.size)
-       /* Data.dataList.add(ItemXY())
-        Data.dataList.add(ItemXY())
-        Data.dataList.add(ItemXY())
-        Data.dataList.add(ItemXY())
-        Data.dataList.add(ItemXY())
-        Data.dataList.add(ItemXY())
-        Data.dataList.add(ItemXY())*/
     }
 
     fun solve(view: View){
-        startActivity(Intent(this, ResultActivity::class.java))
+        if (Data.dataList.size > 1){
+            startActivity(Intent(this, ResultActivity::class.java))
+        }else{
+            Toast.makeText(applicationContext, "Нужно хотя бы 2 значения", Toast.LENGTH_SHORT).show()
+        }
     }
 
     fun add(view: View){
@@ -68,5 +55,10 @@ class MainActivity : AppCompatActivity() {
         view.yText.text = item.y.toString()
 
         container.addView(view)
+    }
+
+    override fun onDestroy() {
+        Data.dataList.clear()
+        super.onDestroy()
     }
 }

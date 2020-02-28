@@ -74,16 +74,20 @@
         <Button
             android:onClick="solve"
             android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
             android:text="Решить"
-            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content">
         </Button>
 
         <Button
             android:onClick="add"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="8dp"
             android:text="Добавить"
-            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content">
         </Button>
     </LinearLayout>
